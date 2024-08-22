@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctd30r7222hcg"
-path="res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"
+uid="uid://du6mwqehe8sd2"
+path="res://.godot/imported/facehugger.png-621a34b4c8d69e847d41e3f57e716a79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/isometric.png"
-dest_files=["res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"]
+source_file="res://assets/images/facehugger.png"
+dest_files=["res://.godot/imported/facehugger.png-621a34b4c8d69e847d41e3f57e716a79.ctex"]
 
 [params]
 

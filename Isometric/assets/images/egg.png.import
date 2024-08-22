@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctd30r7222hcg"
-path="res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"
+uid="uid://b8aeh7hrm1v3o"
+path="res://.godot/imported/egg.png-cea53a6e7b8b7e31dafa2cb8c41bfc3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/isometric.png"
-dest_files=["res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"]
+source_file="res://assets/images/egg.png"
+dest_files=["res://.godot/imported/egg.png-cea53a6e7b8b7e31dafa2cb8c41bfc3f.ctex"]
 
 [params]
 

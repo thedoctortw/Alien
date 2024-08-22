@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctd30r7222hcg"
-path="res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"
+uid="uid://do0pgsptb3cqe"
+path="res://.godot/imported/Xenomorph_Attack-Sheet.png-d9f6f4ae98a60ef66b1af7f3646eb660.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/isometric.png"
-dest_files=["res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"]
+source_file="res://assets/images/Xenomorph_Attack-Sheet.png"
+dest_files=["res://.godot/imported/Xenomorph_Attack-Sheet.png-d9f6f4ae98a60ef66b1af7f3646eb660.ctex"]
 
 [params]
 

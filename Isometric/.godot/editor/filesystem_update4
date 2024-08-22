@@ -1,0 +1,4 @@
+res://scenes/dungeon.tscn
+res://assets/tileset.tres
+res://scenes/Player.tscn
+res://scripts/person.gd

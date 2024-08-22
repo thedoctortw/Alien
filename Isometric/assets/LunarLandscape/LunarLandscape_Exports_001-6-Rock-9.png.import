@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctd30r7222hcg"
-path="res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"
+uid="uid://dbvixrkc4m3fe"
+path="res://.godot/imported/LunarLandscape_Exports_001-6-Rock-9.png-ad33df1c37818c4114a8eaffc9d861f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/isometric.png"
-dest_files=["res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"]
+source_file="res://assets/LunarLandscape/LunarLandscape_Exports_001-6-Rock-9.png"
+dest_files=["res://.godot/imported/LunarLandscape_Exports_001-6-Rock-9.png-ad33df1c37818c4114a8eaffc9d861f0.ctex"]
 
 [params]
 

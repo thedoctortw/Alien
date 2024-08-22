@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctd30r7222hcg"
-path="res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"
+uid="uid://n3s8qha4grn1"
+path="res://.godot/imported/troll.png-6732000ff8f95f464a5e2ab5226bcf97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/isometric.png"
-dest_files=["res://.godot/imported/isometric.png-c5fdabb3c4009b7a2010e679bc9ff00a.ctex"]
+source_file="res://assets/images/troll.png"
+dest_files=["res://.godot/imported/troll.png-6732000ff8f95f464a5e2ab5226bcf97.ctex"]
 
 [params]
 
