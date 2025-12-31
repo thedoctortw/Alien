@@ -17,6 +17,7 @@ var jumped = false
 signal jumpedSignal
 signal attackSignal
 signal evolveSignal
+signal layEggSignal
 
 # Alien evolve steps -> fh, cb, xn, qn
 var currentLifeCycle = FACEHUGGER_ID
@@ -37,16 +38,19 @@ func _physics_process(_delta):
 	motion.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	motion.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	motion.y /= 2
+
 	motion = motion.normalized() * MOTION_SPEED
 	
 		#Player Actions
 	if Input.is_action_pressed("facehugger_jump"):
-		_on_Player_jumped(motion)
-		
+		motion = _on_Player_jumped(motion) * MOTION_SPEED / 10
+	elif Input.is_action_just_pressed("lay_egg"):
+		_on_lay_egg_signal(currentLifeCycle, _animated_sprite.global_position)
+
 	#warning-ignore:return_value_discarded
+		
 	set_velocity(motion)
 	move_and_slide()
-		
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_right"):
@@ -66,7 +70,6 @@ func _process(_delta):
 		_animated_sprite.play(getAttackAnimation(currentLifeCycle, currentDirection))
 	elif _animated_sprite.get_animation() != currentLifeCycle + "_" + currentDirection + "_attack":
 		_animated_sprite.stop()
-		
 	
 
 #JUMP LOGIC
@@ -76,8 +79,21 @@ func _on_Player_jumped(motion):
 		$AnimatedSprite2D/JumpTimer.start()
 		jumped = true;
 		evolve()
-		self.set_position(Vector2(self.get_position().x + motion.x * 1.2,self.get_position().y + motion.y))
-		motion.y -= 10
+		#self.set_position(Vector2(self.get_position().x + motion.x * 1.2,self.get_position().y + motion.y))
+		if Input.is_action_pressed("ui_right"):
+			motion.x += 2
+			motion.y -= 2
+		elif Input.is_action_pressed("ui_left"):
+			motion.x -= 2
+			motion.y += 2
+		elif Input.is_action_pressed("ui_up"):
+			motion.y -= 2
+			motion.x += 2
+		elif Input.is_action_pressed("ui_down"):
+			motion.y += 2
+			motion.x -= 2
+
+	return motion
 
 
 func _on_JumpTimer_timeout():
@@ -110,3 +126,15 @@ func _on_evolve_signal():
 	
 func getAttackAnimation (currentLifeCycle, currentDirection):
 	return currentLifeCycle + "_" + currentDirection + "_attack"
+	
+func layEgg():
+	emit_signal("layEggSignal")
+
+@onready var egg = preload("res://scenes//Egg.tscn")
+func _on_lay_egg_signal (currentLifeCycle, position:Vector2, scene = self):
+	print("entered")
+	if (currentLifeCycle == XENOMORPH_ID):
+		var eggInstance = egg.instantiate() # creates an instance of the player, obviously
+		eggInstance.global_position = position
+		print (scene.get_tree().root)
+		add_sibling(eggInstance)

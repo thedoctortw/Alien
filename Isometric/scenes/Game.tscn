@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmw8r6pg578ff"]
+[gd_scene load_steps=11 format=3 uid="uid://cmw8r6pg578ff"]
 
-[ext_resource type="TileSet" uid="uid://b122a5gturpgu" path="res://assets/tileset.tres" id="1_34mjy"]
-[ext_resource type="Script" path="res://scripts/person.gd" id="2_bfp7k"]
-[ext_resource type="Texture2D" uid="uid://n3s8qha4grn1" path="res://assets/images/troll.png" id="3_lss1v"]
-[ext_resource type="PackedScene" path="res://scenes/troll.tscn" id="4_om36t"]
-[ext_resource type="PackedScene" uid="uid://k6t3rcl2i7hl" path="res://scenes/Player.tscn" id="5_26630"]
-[ext_resource type="PackedScene" path="res://scenes/GUI.tscn" id="6_bfvi1"]
+[ext_resource type="TileSet" uid="uid://b122a5gturpgu" path="res://assets/tileset.tres" id="1_i5m0t"]
+[ext_resource type="PackedScene" path="res://scenes/GUI.tscn" id="2_ry3d8"]
+[ext_resource type="Script" path="res://scripts/person.gd" id="3_dnisp"]
+[ext_resource type="Texture2D" uid="uid://n3s8qha4grn1" path="res://assets/images/troll.png" id="4_c3pah"]
+[ext_resource type="PackedScene" uid="uid://k6t3rcl2i7hl" path="res://scenes/Player.tscn" id="6_1cf2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3x1f"]
 size = Vector2(134, 973)
@@ -21,12 +20,12 @@ size = Vector2(1396, 120)
 
 [sub_resource type="CircleShape2D" id="1"]
 
-[node name="Dungeon" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Floor" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(8, -2)
-tile_set = ExtResource("1_34mjy")
+tile_set = ExtResource("1_i5m0t")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 0"
@@ -34,7 +33,7 @@ layer_0/tile_data = PackedInt32Array(65536, 0, 0, 131073, 0, 0, 196609, 0, 0, -3
 
 [node name="Walls" type="TileMap" parent="."]
 position = Vector2(-139, -101)
-tile_set = ExtResource("1_34mjy")
+tile_set = ExtResource("1_i5m0t")
 format = 2
 layer_0/tile_data = PackedInt32Array(1048574, 0, 1, 917502, 0, 1, 786430, 0, 1, 655358, 0, 1, 524286, 0, 1, 393214, 0, 1, 262142, 0, 1, 131070, 0, 1, -2, 0, 1, -131074, 0, 1, -262146, 0, 1, 1179646, 0, 1, 1179647, 0, 1, 1114112, 0, 1, 1114113, 0, 1, 1114114, 0, 1, 1179651, 0, 1, 1179652, 0, 1, 1179653, 0, 1, 1179654, 0, 1, 1179655, 0, 1, 1179656, 0, 1, 1179657, 0, 1, 1179658, 0, 1, 1048586, 0, 1, 917514, 0, 1, 786442, 0, 1, 655370, 0, 1, 524298, 0, 1, 393226, 0, 1, 262154, 0, 1, 131082, 0, 1, 10, 0, 1, -131062, 0, 1, -262134, 0, 1, -393206, 0, 1, -524278, 0, 1, -458747, 0, 1, -458748, 0, 1, -458749, 0, 1, -458750, 0, 1, -458751, 0, 1, -458752, 0, 1, -393217, 0, 1, -393218, 0, 1, -458746, 0, 1, -458745, 0, 1, -458744, 0, 1, -458743, 0, 1)
 
@@ -57,7 +56,7 @@ shape = SubResource("RectangleShape2D_rxq61")
 position = Vector2(638, 688)
 shape = SubResource("RectangleShape2D_p2moh")
 
-[node name="GUI" parent="." instance=ExtResource("6_bfvi1")]
+[node name="GUI" parent="." instance=ExtResource("2_ry3d8")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 0.0
@@ -68,7 +67,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Troll" type="CharacterBody2D" parent="."]
 position = Vector2(-100, -146)
-script = ExtResource("2_bfp7k")
+script = ExtResource("3_dnisp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Troll"]
 position = Vector2(832, 139)
@@ -76,13 +75,10 @@ shape = SubResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Troll"]
 position = Vector2(835, 143)
-texture = ExtResource("3_lss1v")
+texture = ExtResource("4_c3pah")
 
-[node name="FaceHugger" parent="." instance=ExtResource("4_om36t")]
-visible = false
-position = Vector2(257, 237)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_26630")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_1cf2r")]
 position = Vector2(227, 175)
 
 [connection signal="evolveSignal" from="CharacterBody2D" to="CharacterBody2D" method="_on_evolve_signal"]
+[connection signal="layEggSignal" from="CharacterBody2D" to="CharacterBody2D" method="_on_lay_egg_signal"]

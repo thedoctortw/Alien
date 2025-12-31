@@ -1,4 +1,5 @@
-res://scenes/dungeon.tscn
+res://scenes/Game.tscn
 res://assets/tileset.tres
 res://scenes/Player.tscn
-res://scripts/person.gd
+res://scripts/Player.gd
+res://scenes/Egg.tscn
